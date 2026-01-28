@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokanesia - Local Experience of Indonesia</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #2E7D32;
+            --secondary-green: #A5D6A7;
+            --accent-brown: #8D6E63;
+            --accent-blue: #4FC3F7;
+            --white-bg: #FFFFFF;
+            --text-gray: #4F4F4F;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-gray);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-green), #1B5E20);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary-green) !important;
+            transform: translateY(-2px);
+        }
+        
+        .btn-login, .btn-register {
+            border-radius: 25px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-login {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-login:hover {
+            background: white;
+            color: var(--primary-green);
+        }
+        
+        .btn-register {
+            background: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
+            color: white;
+            margin-left: 0.5rem;
+        }
+        
+        .btn-register:hover {
+            background: transparent;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.9), rgba(27, 94, 32, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%232E7D32" width="1200" height="600"/><path fill="%23A5D6A7" opacity="0.1" d="M0,300 Q300,100 600,300 T1200,300 L1200,600 L0,600 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="30" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="60" cy="15" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="35" r="1" fill="white" opacity="0.1"/><circle cx="20" cy="50" r="1" fill="white" opacity="0.1"/><circle cx="70" cy="60" r="1" fill="white" opacity="0.1"/><circle cx="40" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="90" cy="80" r="1" fill="white" opacity="0.1"/></svg>');
+            background-size: 100px 100px;
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            from { background-position: 0 0; }
+            to { background-position: 100px 100px; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .btn-explore {
+            background: var(--accent-blue);
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            box-shadow: 0 5px 20px rgba(79, 195, 247, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-explore:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(79, 195, 247, 0.6);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: linear-gradient(to bottom, #f8f9fa, white);
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 2px solid transparent;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(46, 125, 50, 0.2);
+            border-color: var(--secondary-green);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+        
+        /* Village Cards */
+        .village-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            background: white;
+        }
+        
+        .village-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(46, 125, 50, 0.2);
+        }
+        
+        .village-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+        }
+        
+        .village-body {
+            padding: 1.5rem;
+        }
+        
+        .village-title {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .village-location {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+        
+        .village-rating {
+            color: #FFA726;
+            margin-bottom: 1rem;
+        }
+        
+        .village-price {
+            font-size: 1.3rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .btn-book {
+            background: var(--primary-green);
+            color: white;
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-book:hover {
+            background: #1B5E20;
+            transform: scale(1.05);
+        }
+        
+        /* Auth Forms */
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            padding: 2rem 0;
+        }
+        
+        .auth-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 450px;
+            margin: 0 auto;
+        }
+        
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .auth-header h2 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            padding: 0.8rem 1rem;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25);
+        }
+        
+        .btn-auth {
+            background: var(--primary-green);
+            color: white;
+            padding: 0.8rem;
+            border-radius: 10px;
+            border: none;
+            width: 100%;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-auth:hover {
+            background: #1B5E20;
+            transform: translateY(-2px);
+        }
+        
+        /* Dashboard */
+        .dashboard-header {
+            background: linear-gradient(135deg, var(--primary-green), #1B5E20);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1B5E20, var(--primary-green));
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 5rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-green);
+            padding-left: 5px;
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        .slide-up {
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 0.8s forwards;
+        }
+        
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Loading Animation */
+        .spinner-border-sm {
+            width: 1rem;
+            height: 1rem;
+            border-width: 0.2em;
+        }
+        
+        /* Badge */
+        .badge-custom {
+            background: var(--accent-blue);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+        
+        /* Map Placeholder */
+        .map-container {
+            background: #e0e0e0;
+            height: 400px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="showPage('home')">
+                <i class="fas fa-mountain"></i> Lokanesia
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center" id="mainNav">
+                    <!-- Navigation akan diupdate oleh JavaScript -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div id="mainContent"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4 class="mb-3"><i class="fas fa-mountain"></i> Lokanesia</h4>
+                    <p>Menghubungkan wisatawan dengan pengalaman lokal autentik di seluruh Indonesia.</p>
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5 class="mb-3">Tentang</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Tim Kami</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5 class="mb-3">Layanan</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Desa Wisata</a></li>
+                        <li><a href="#">Guide Lokal</a></li>
+                        <li><a href="#">Homestay</a></li>
+                        <li><a href="#">Paket Tour</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5 class="mb-3">Bantuan</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Kebijakan</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5 class="mb-3">Mitra</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Daftar Mitra</a></li>
+                        <li><a href="#">Dashboard Mitra</a></li>
+                        <li><a href="#">Panduan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.3);">
+            <div class="text-center py-3">
+                <p class="mb-0">&copy; 2026 Lokanesia - Local Experience of Indonesia. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <script>
+        // ==================== DATA STORAGE ====================
+        
+        // Sample village data
+        const villagesData = [
+            {
+                id: 1,
+                name: "Desa Wae Rebo",
+                location: "Flores, NTT",
+                category: "Budaya",
+                price: "Rp 850.000",
+                rating: 4.9,
+                reviews: 142,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%232E7D32' width='400' height='300'/%3E%3Cpath fill='%238D6E63' d='M50,200 L200,100 L350,200 Z'/%3E%3Ctext x='200' y='250' font-size='20' fill='white' text-anchor='middle' font-family='Playfair Display'%3EWae Rebo%3C/text%3E%3C/svg%3E",
+                description: "Desa tradisional dengan rumah adat Mbaru Niang yang ikonik"
+            },
+            {
+                id: 2,
+                name: "Desa Penglipuran",
+                location: "Bali",
+                category: "Budaya",
+                price: "Rp 450.000",
+                rating: 4.8,
+                reviews: 256,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23A5D6A7' width='400' height='300'/%3E%3Crect fill='%238D6E63' x='150' y='120' width='100' height='120'/%3E%3Cpath fill='%234FC3F7' d='M150,120 L200,80 L250,120 Z'/%3E%3Ctext x='200' y='250' font-size='20' fill='white' text-anchor='middle' font-family='Playfair Display'%3EPenglipuran%3C/text%3E%3C/svg%3E",
+                description: "Desa adat Bali dengan tata ruang tradisional yang masih terjaga"
+            },
+            {
+                id: 3,
+                name: "Desa Sade",
+                location: "Lombok, NTB",
+                category: "Budaya",
+                price: "Rp 350.000",
+                rating: 4.7,
+                reviews: 189,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%234FC3F7' width='400' height='300'/%3E%3Ccircle fill='%23FFA726' cx='200' cy='80' r='40'/%3E%3Crect fill='%238D6E63' x='100' y='150' width='200' height='100'/%3E%3Ctext x='200' y='280' font-size='20' fill='white' text-anchor='middle' font-family='Playfair Display'%3ESade%3C/text%3E%3C/svg%3E",
+                description: "Desa suku Sasak dengan kerajinan tenun tradisional"
+            },
+            {
+                id: 4,
+                name: "Desa Nagari",
+                location: "Sumatera Barat",
+                category: "Alam",
+                price: "Rp 550.000",
+                rating: 4.6,
+                reviews: 98,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%232E7D32' width='400' height='300'/%3E%3Cpath fill='%231B5E20' d='M0,200 Q100,150 200,180 T400,200 L400,300 L0,300 Z'/%3E%3Ctext x='200' y='150' font-size='20' fill='white' text-anchor='middle' font-family='Playfair Display'%3ENagari%3C/text%3E%3C/svg%3E",
+                description: "Rumah gadang dan hamparan sawah hijau yang memukau"
+            },
+            {
+                id: 5,
+                name: "Desa Kampung Naga",
+                location: "Jawa Barat",
+                category: "Budaya",
+                price: "Rp 400.000",
+                rating: 4.8,
+                reviews: 173,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23A5D6A7' width='400' height='300'/%3E%3Crect fill='%238D6E63' x='120' y='100' width='60' height='80'/%3E%3Crect fill='%238D6E63' x='220' y='100' width='60' height='80'/%3E%3Ctext x='200' y='250' font-size='20' fill='white' text-anchor='middle' font-family='Playfair Display'%3EKampung Naga%3C/text%3E%3C/svg%3E",
+                description: "Kampung adat Sunda yang menjaga tradisi leluhur"
+            },
+            {
+                id: 6,
+                name: "Desa Trunyan",
+                location: "Bali",
+                category: "Budaya",
+                price: "Rp 650.000",
+                rating: 4.5,
+                reviews: 87,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%234FC3F7' width='400' height='300'/%3E%3Cellipse fill='%232E7D32' cx='200' cy='200' rx='150' ry='50'/%3E%3Ctext x='200' y='150' font-size='20' fill='white' text-anchor='middle' font-family='Playfair Display'%3ETrunyan%3C/text%3E%3C/svg%3E",
+                description: "Desa tepi Danau Batur dengan tradisi unik"
+            }
+        ];
+
+        // ==================== AUTH SYSTEM ====================
+        
+        class AuthSystem {
+            constructor() {
+                this.currentUser = null;
+                this.init();
+            }
+
+            init() {
+                // Check if user is already logged in
+                const savedUser = localStorage.getItem('lokanesiaCurrentUser');
+                if (savedUser) {
+                    this.currentUser = JSON.parse(savedUser);
+                }
+            }
+
+            register(name, email, password) {
+                // Get existing users
+                let users = JSON.parse(localStorage.getItem('lokanesiaUsers') || '[]');
+                
+                // Check if email already exists
+                if (users.find(u => u.email === email)) {
+                    return { success: false, message: 'Email sudah terdaftar!' };
+                }
+
+                // Simple password hash (dalam produksi gunakan library yang proper)
+                const hashedPassword = btoa(password);
+
+                // Create new user
+                const newUser = {
+                    id: Date.now(),
+                    name,
+                    email,
+                    password: hashedPassword,
+                    joinDate: new Date().toISOString(),
+                    bookings: []
+                };
+
+                users.push(newUser);
+                localStorage.setItem('lokanesiaUsers', JSON.stringify(users));
+
+                return { success: true, message: 'Registrasi berhasil!' };
+            }
+
+            login(email, password, rememberMe = false) {
+                const users = JSON.parse(localStorage.getItem('lokanesiaUsers') || '[]');
+                const hashedPassword = btoa(password);
+                
+                const user = users.find(u => u.email === email && u.password === hashedPassword);
+
+                if (user) {
+                    this.currentUser = user;
+                    if (rememberMe) {
+                        localStorage.setItem('lokanesiaCurrentUser', JSON.stringify(user));
+                    } else {
+                        sessionStorage.setItem('lokanesiaCurrentUser', JSON.stringify(user));
+                    }
+                    return { success: true, message: 'Login berhasil!' };
+                }
+
+                return { success: false, message: 'Email atau password salah!' };
+            }
+
+            logout() {
+                this.currentUser = null;
+                localStorage.removeItem('lokanesiaCurrentUser');
+                sessionStorage.removeItem('lokanesiaCurrentUser');
+            }
+
+            isLoggedIn() {
+                return this.currentUser !== null;
+            }
+
+            getCurrentUser() {
+                return this.currentUser;
+            }
+
+            addBooking(villageId, packageType, date) {
+                if (!this.isLoggedIn()) return false;
+
+                const users = JSON.parse(localStorage.getItem('lokanesiaUsers') || '[]');
+                const userIndex = users.findIndex(u => u.id === this.currentUser.id);
+
+                if (userIndex !== -1) {
+                    const booking = {
+                        id: Date.now(),
+                        villageId,
+                        packageType,
+                        date,
+                        status: 'confirmed',
+                        bookingDate: new Date().toISOString()
+                    };
+
+                    users[userIndex].bookings.push(booking);
+                    localStorage.setItem('lokanesiaUsers', JSON.stringify(users));
+                    
+                    this.currentUser = users[userIndex];
+                    localStorage.setItem('lokanesiaCurrentUser', JSON.stringify(this.currentUser));
+
+                    return true;
+                }
+
+                return false;
+            }
+        }
+
+        const auth = new AuthSystem();
+
+        // ==================== PAGE TEMPLATES ====================
+
+        const pages = {
+            home: `
+                <div class="hero fade-in">
+                    <div class="container">
+                        <div class="hero-content">
+                            <h1 class="slide-up" style="animation-delay: 0.2s;">Jelajahi Indonesia</h1>
+                            <p class="slide-up" style="animation-delay: 0.4s;">Rasakan pengalaman lokal autentik di desa-desa wisata terbaik Indonesia</p>
+                            <button class="btn btn-explore slide-up" style="animation-delay: 0.6s;" onclick="showPage('explore')">
+                                <i class="fas fa-compass"></i> Mulai Jelajahi
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="features">
+                    <div class="container">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-3">Mengapa Memilih Lokanesia?</h2>
+                            <p class="text-muted">Platform terpercaya untuk pengalaman wisata lokal terbaik</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="feature-card">
+                                    <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+                                    <h3>Eksplorasi Mudah</h3>
+                                    <p>Temukan desa wisata berdasarkan lokasi, kategori, dan minat Anda dengan mudah</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="feature-card">
+                                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                                    <h3>Guide Lokal Berpengalaman</h3>
+                                    <p>Dipandu langsung oleh masyarakat lokal yang mengenal desa dengan baik</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="feature-card">
+                                    <div class="feature-icon"><i class="fas fa-home"></i></div>
+                                    <h3>Homestay Autentik</h3>
+                                    <p>Menginap di rumah warga untuk pengalaman budaya yang lebih mendalam</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-5 bg-light">
+                    <div class="container">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-3">Desa Wisata Populer</h2>
+                            <p class="text-muted">Destinasi favorit wisatawan</p>
+                        </div>
+                        <div class="row" id="popularVillages">
+                            ${villagesData.slice(0, 3).map(village => `
+                                <div class="col-md-4">
+                                    <div class="village-card">
+                                        <img src="${village.image}" class="village-img" alt="${village.name}">
+                                        <div class="village-body">
+                                            <span class="badge-custom">${village.category}</span>
+                                            <h3 class="village-title">${village.name}</h3>
+                                            <p class="village-location"><i class="fas fa-map-marker-alt"></i> ${village.location}</p>
+                                            <div class="village-rating">
+                                                <i class="fas fa-star"></i> ${village.rating} (${village.reviews} ulasan)
+                                            </div>
+                                            <p>${village.description}</p>
+                                            <div class="village-price">${village.price} <small>/orang</small></div>
+                                            <button class="btn btn-book" onclick="bookVillage(${village.id})">
+                                                <i class="fas fa-calendar-check"></i> Pesan Sekarang
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="text-center mt-4">
+                            <button class="btn btn-explore" onclick="showPage('explore')">
+                                Lihat Semua Desa <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-5">
+                    <div class="container">
+                        <div class="text-center mb-5">
+                            <h2 class="mb-3">Cerita dari Wisatawan</h2>
+                            <p class="text-muted">Pengalaman nyata dari mereka yang telah berkunjung</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                        </div>
+                                        <p class="card-text">"Pengalaman yang luar biasa! Tinggal bersama keluarga lokal di Wae Rebo membuat saya benar-benar merasakan kehidupan tradisional mereka."</p>
+                                        <div class="d-flex align-items-center mt-3">
+                                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                                <strong>AS</strong>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="mb-0">Andi Setiawan</h6>
+                                                <small class="text-muted">Jakarta</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                        </div>
+                                        <p class="card-text">"Guide lokal yang sangat ramah dan berpengetahuan luas. Mereka menjelaskan setiap detail budaya dengan sangat baik."</p>
+                                        <div class="d-flex align-items-center mt-3">
+                                            <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                                <strong>SR</strong>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="mb-0">Siti Rahmawati</h6>
+                                                <small class="text-muted">Bandung</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                            <i class="fas fa-star text-warning"></i>
+                                        </div>
+                                        <p class="card-text">"Lokanesia memudahkan saya menemukan desa wisata yang jarang diketahui. Highly recommended untuk pecinta petualangan!"</p>
+                                        <div class="d-flex align-items-center mt-3">
+                                            <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                                <strong>BP</strong>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="mb-0">Budi Prasetyo</h6>
+                                                <small class="text-muted">Surabaya</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `,
+
+            explore: `
+                <div class="dashboard-header">
+                    <div class="container">
+                        <h1><i class="fas fa-compass"></i> Jelajahi Desa Wisata</h1>
+                        <p class="mb-0">Temukan pengalaman lokal yang sempurna untuk Anda</p>
+                    </div>
+                </div>
+
+                <div class="container mb-5">
+                    <div class="row mb-4">
+                        <div class="col-md-4 mb-3">
+                            <input type="text" class="form-control" id="searchInput" placeholder="Cari desa wisata...">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <select class="form-select" id="categoryFilter">
+                                <option value="">Semua Kategori</option>
+                                <option value="Budaya">Budaya</option>
+                                <option value="Alam">Alam</option>
+                                <option value="Kuliner">Kuliner</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <select class="form-select" id="locationFilter">
+                                <option value="">Semua Lokasi</option>
+                                <option value="Bali">Bali</option>
+                                <option value="NTT">NTT</option>
+                                <option value="NTB">NTB</option>
+                                <option value="Jawa Barat">Jawa Barat</option>
+                                <option value="Sumatera Barat">Sumatera Barat</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row" id="villagesList">
+                        ${villagesData.map(village => `
+                            <div class="col-md-4 village-item" data-category="${village.category}" data-location="${village.location}">
+                                <div class="village-card">
+                                    <img src="${village.image}" class="village-img" alt="${village.name}">
+                                    <div class="village-body">
+                                        <span class="badge-custom">${village.category}</span>
+                                        <h3 class="village-title">${village.name}</h3>
+                                        <p class="village-location"><i class="fas fa-map-marker-alt"></i> ${village.location}</p>
+                                        <div class="village-rating">
+                                            <i class="fas fa-star"></i> ${village.rating} (${village.reviews} ulasan)
+                                        </div>
+                                        <p>${village.description}</p>
+                                        <div class="village-price">${village.price} <small>/orang</small></div>
+                                        <button class="btn btn-book" onclick="bookVillage(${village.id})">
+                                            <i class="fas fa-calendar-check"></i> Pesan Sekarang
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `,
+
+            dashboard: `
+                <div class="dashboard-header">
+                    <div class="container">
+                        <h1><i class="fas fa-tachometer-alt"></i> Dashboard Saya</h1>
+                        <p class="mb-0">Selamat datang, ${auth.getCurrentUser()?.name || 'User'}!</p>
+                    </div>
+                </div>
+
+                <div class="container mb-5">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="stat-card">
+                                <div class="stat-icon text-primary">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="stat-number">${auth.getCurrentUser()?.bookings?.length || 0}</div>
+                                <p class="text-muted mb-0">Total Booking</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-card">
+                                <div class="stat-icon text-success">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                </div>
+                                <div class="stat-number">${new Set(auth.getCurrentUser()?.bookings?.map(b => b.villageId) || []).size}</div>
+                                <p class="text-muted mb-0">Desa Dikunjungi</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-card">
+                                <div class="stat-icon text-warning">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="stat-number">4.8</div>
+                                <p class="text-muted mb-0">Rating Rata-rata</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <h3 class="mb-4"><i class="fas fa-history"></i> Riwayat Booking</h3>
+                            ${auth.getCurrentUser()?.bookings?.length > 0 ? `
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Desa</th>
+                                                <th>Paket</th>
+                                                <th>Tanggal</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${auth.getCurrentUser().bookings.map(booking => {
+                                                const village = villagesData.find(v => v.id === booking.villageId);
+                                                return `
+                                                    <tr>
+                                                        <td><strong>${village?.name || 'Unknown'}</strong></td>
+                                                        <td>${booking.packageType}</td>
+                                                        <td>${new Date(booking.date).toLocaleDateString('id-ID')}</td>
+                                                        <td><span class="badge bg-success">Confirmed</span></td>
+                                                    </tr>
+                                                `;
+                                            }).join('')}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            ` : `
+                                <div class="alert alert-info">
+                                    <i class="fas fa-info-circle"></i> Anda belum memiliki booking. <a href="#" onclick="showPage('explore')" class="alert-link">Mulai jelajahi sekarang!</a>
+                                </div>
+                            `}
+                        </div>
+                    </div>
+                </div>
+            `,
+
+            login: `
+                <div class="auth-container">
+                    <div class="container">
+                        <div class="auth-card">
+                            <div class="auth-header">
+                                <h2><i class="fas fa-sign-in-alt"></i> Masuk</h2>
+                                <p class="text-muted">Selamat datang kembali!</p>
+                            </div>
+                            <form id="loginForm" onsubmit="handleLogin(event)">
+                                <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="loginEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="loginPassword" required minlength="6">
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">Ingat saya</label>
+                                </div>
+                                <div id="loginError" class="alert alert-danger hidden"></div>
+                                <button type="submit" class="btn btn-auth">
+                                    <i class="fas fa-sign-in-alt"></i> Masuk
+                                </button>
+                            </form>
+                            <div class="text-center mt-3">
+                                <p class="text-muted">Belum punya akun? <a href="#" onclick="showPage('register')" style="color: var(--primary-green);">Daftar di sini</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `,
+
+            register: `
+                <div class="auth-container">
+                    <div class="container">
+                        <div class="auth-card">
+                            <div class="auth-header">
+                                <h2><i class="fas fa-user-plus"></i> Daftar</h2>
+                                <p class="text-muted">Mulai petualangan Anda!</p>
+                            </div>
+                            <form id="registerForm" onsubmit="handleRegister(event)">
+                                <div class="mb-3">
+                                    <label class="form-label">Nama Lengkap</label>
+                                    <input type="text" class="form-control" id="registerName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="registerEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="registerPassword" required minlength="6">
+                                    <small class="text-muted">Minimal 6 karakter</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Konfirmasi Password</label>
+                                    <input type="password" class="form-control" id="registerPasswordConfirm" required minlength="6">
+                                </div>
+                                <div id="registerError" class="alert alert-danger hidden"></div>
+                                <div id="registerSuccess" class="alert alert-success hidden"></div>
+                                <button type="submit" class="btn btn-auth">
+                                    <i class="fas fa-user-plus"></i> Daftar
+                                </button>
+                            </form>
+                            <div class="text-center mt-3">
+                                <p class="text-muted">Sudah punya akun? <a href="#" onclick="showPage('login')" style="color: var(--primary-green);">Masuk di sini</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        };
+
+        // ==================== NAVIGATION ====================
+
+        function updateNavigation() {
+            const nav = document.getElementById('mainNav');
+            
+            if (auth.isLoggedIn()) {
+                nav.innerHTML = `
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('home')">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('explore')">Jelajahi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('dashboard')">Dashboard</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i> ${auth.getCurrentUser().name}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="showPage('dashboard')"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                `;
+            } else {
+                nav.innerHTML = `
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('home')">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('explore')">Jelajahi</a></li>
+                    <li class="nav-item"><button class="btn btn-login" onclick="showPage('login')"><i class="fas fa-sign-in-alt"></i> Masuk</button></li>
+                    <li class="nav-item"><button class="btn btn-register" onclick="showPage('register')"><i class="fas fa-user-plus"></i> Daftar</button></li>
+                `;
+            }
+        }
+
+        function showPage(pageName) {
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            const content = document.getElementById('mainContent');
+            content.innerHTML = pages[pageName] || pages.home;
+            
+            // Apply animations
+            if (pageName === 'home') {
+                applyAnimations();
+            }
+            
+            // Setup filters if on explore page
+            if (pageName === 'explore') {
+                setupFilters();
+            }
+        }
+
+        // ==================== AUTH HANDLERS ====================
+
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+            
+            const result = auth.login(email, password, rememberMe);
+            
+            if (result.success) {
+                updateNavigation();
+                showPage('home');
+                showNotification('Login berhasil! Selamat datang di Lokanesia.', 'success');
+            } else {
+                const errorDiv = document.getElementById('loginError');
+                errorDiv.textContent = result.message;
+                errorDiv.classList.remove('hidden');
+            }
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const passwordConfirm = document.getElementById('registerPasswordConfirm').value;
+            
+            const errorDiv = document.getElementById('registerError');
+            const successDiv = document.getElementById('registerSuccess');
+            
+            // Reset messages
+            errorDiv.classList.add('hidden');
+            successDiv.classList.add('hidden');
+            
+            // Validate
+            if (password !== passwordConfirm) {
+                errorDiv.textContent = 'Password tidak cocok!';
+                errorDiv.classList.remove('hidden');
+                return;
+            }
+            
+            const result = auth.register(name, email, password);
+            
+            if (result.success) {
+                successDiv.textContent = result.message + ' Silakan login.';
+                successDiv.classList.remove('hidden');
+                document.getElementById('registerForm').reset();
+                
+                setTimeout(() => {
+                    showPage('login');
+                }, 2000);
+            } else {
+                errorDiv.textContent = result.message;
+                errorDiv.classList.remove('hidden');
+            }
+        }
+
+        function handleLogout() {
+            if (confirm('Apakah Anda yakin ingin logout?')) {
+                auth.logout();
+                updateNavigation();
+                showPage('home');
+                showNotification('Anda telah logout.', 'info');
+            }
+        }
+
+        // ==================== BOOKING ====================
+
+        function bookVillage(villageId) {
+            if (!auth.isLoggedIn()) {
+                showNotification('Silakan login terlebih dahulu untuk melakukan booking.', 'warning');
+                showPage('login');
+                return;
+            }
+
+            const village = villagesData.find(v => v.id === villageId);
+            
+            if (confirm(`Booking ${village.name}?\n\nHarga: ${village.price}/orang\nLokasi: ${village.location}\n\nLanjutkan?`)) {
+                const packageType = 'Paket 2D1N + Guide + Homestay';
+                const date = new Date();
+                date.setDate(date.getDate() + 7); // 7 days from now
+                
+                if (auth.addBooking(villageId, packageType, date.toISOString())) {
+                    showNotification(`Booking berhasil! ${village.name} telah ditambahkan ke dashboard Anda.`, 'success');
+                    showPage('dashboard');
+                } else {
+                    showNotification('Terjadi kesalahan saat booking.', 'danger');
+                }
+            }
+        }
+
+        // ==================== FILTERS ====================
+
+        function setupFilters() {
+            const searchInput = document.getElementById('searchInput');
+            const categoryFilter = document.getElementById('categoryFilter');
+            const locationFilter = document.getElementById('locationFilter');
+
+            if (searchInput) {
+                searchInput.addEventListener('input', filterVillages);
+            }
+            if (categoryFilter) {
+                categoryFilter.addEventListener('change', filterVillages);
+            }
+            if (locationFilter) {
+                locationFilter.addEventListener('change', filterVillages);
+            }
+        }
+
+        function filterVillages() {
+            const searchTerm = document.getElementById('searchInput')?.value.toLowerCase() || '';
+            const category = document.getElementById('categoryFilter')?.value || '';
+            const location = document.getElementById('locationFilter')?.value || '';
+
+            const villageItems = document.querySelectorAll('.village-item');
+
+            villageItems.forEach(item => {
+                const itemCategory = item.dataset.category;
+                const itemLocation = item.dataset.location;
+                const itemText = item.textContent.toLowerCase();
+
+                const matchesSearch = itemText.includes(searchTerm);
+                const matchesCategory = !category || itemCategory === category;
+                const matchesLocation = !location || itemLocation.includes(location);
+
+                if (matchesSearch && matchesCategory && matchesLocation) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // ==================== ANIMATIONS ====================
+
+        function applyAnimations() {
+            // Animate hero elements
+            anime({
+                targets: '.slide-up',
+                translateY: [50, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(200),
+                duration: 800,
+                easing: 'easeOutExpo'
+            });
+
+            // Animate feature cards on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: entry.target,
+                            translateY: [50, 0],
+                            opacity: [0, 1],
+                            duration: 800,
+                            easing: 'easeOutExpo'
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.feature-card, .village-card').forEach(card => {
+                observer.observe(card);
+            });
+        }
+
+        // ==================== NOTIFICATION ====================
+
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type} position-fixed top-0 start-50 translate-middle-x mt-3`;
+            notification.style.zIndex = '9999';
+            notification.style.minWidth = '300px';
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'danger' ? 'exclamation-circle' : type === 'warning' ? 'exclamation-triangle' : 'info-circle'}"></i>
+                ${message}
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            anime({
+                targets: notification,
+                translateY: [-50, 0],
+                opacity: [0, 1],
+                duration: 500,
+                easing: 'easeOutExpo'
+            });
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                anime({
+                    targets: notification,
+                    translateY: [0, -50],
+                    opacity: [1, 0],
+                    duration: 500,
+                    easing: 'easeInExpo',
+                    complete: () => notification.remove()
+                });
+            }, 3000);
+        }
+
+        // ==================== INITIALIZATION ====================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateNavigation();
+            showPage('home');
+        });
+    </script>
+</body>
+</html>
