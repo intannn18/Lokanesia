@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -353,98 +354,6 @@
             color: var(--primary-green);
         }
         
-        /* Checkout Styles */
-        .checkout-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            margin-bottom: 2rem;
-        }
-        
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.8rem 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .summary-row:last-child {
-            border-bottom: none;
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: var(--primary-green);
-        }
-        
-        .payment-method {
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .payment-method:hover {
-            border-color: var(--primary-green);
-            background: #f8f9fa;
-        }
-        
-        .payment-method.active {
-            border-color: var(--primary-green);
-            background: rgba(46, 125, 50, 0.05);
-        }
-        
-        .payment-method input[type="radio"] {
-            margin-right: 0.5rem;
-        }
-        
-        /* Transaction History Styles */
-        .transaction-card {
-            background: white;
-            border-radius: 15px;
-            padding: 1.5rem;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--primary-green);
-            transition: all 0.3s ease;
-        }
-        
-        .transaction-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
-        }
-        
-        .transaction-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .transaction-status {
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-        
-        .status-success {
-            background: #d4edda;
-            color: #155724;
-        }
-        
-        .status-pending {
-            background: #fff3cd;
-            color: #856404;
-        }
-        
-        .status-cancelled {
-            background: #f8d7da;
-            color: #721c24;
-        }
-        
         /* Footer */
         footer {
             background: linear-gradient(135deg, #1B5E20, var(--primary-green));
@@ -508,15 +417,6 @@
             
             .navbar-brand {
                 font-size: 1.5rem;
-            }
-            
-            .transaction-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .transaction-status {
-                margin-top: 0.5rem;
             }
         }
         
@@ -649,7 +549,6 @@
                 location: "Flores, NTT",
                 category: "Budaya",
                 price: "Rp 850.000",
-                priceNum: 850000,
                 rating: 4.9,
                 reviews: 142,
                 image: "assets/WaeRabo.jpg",
@@ -661,7 +560,6 @@
                 location: "Bali",
                 category: "Budaya",
                 price: "Rp 450.000",
-                priceNum: 450000,
                 rating: 4.8,
                 reviews: 256,
                 image: "assets/penglipuran.jpg",
@@ -673,10 +571,8 @@
                 location: "Lombok, NTB",
                 category: "Budaya",
                 price: "Rp 350.000",
-                priceNum: 350000,
                 rating: 4.7,
                 reviews: 189,
-                image: "assets/DesaSade.jpg",
                 description: "Desa suku Sasak dengan kerajinan tenun tradisional"
             },
             {
@@ -685,10 +581,9 @@
                 location: "Sumatera Barat",
                 category: "Alam",
                 price: "Rp 550.000",
-                priceNum: 550000,
                 rating: 4.6,
                 reviews: 98,
-                image: "assets/DesaNagariSumbar.jpg",
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%232E7D32' width='400' height='300'/%3E%3Cpath fill='%231B5E20' d='M0,200 Q100,150 200,180 T400,200 L400,300 L0,300 Z'/%3E%3Ctext x='200' y='150' font-size='20' fill='white' text-anchor='middle' font-family='Playfair Display'%3ENagari%3C/text%3E%3C/svg%3E",
                 description: "Rumah gadang dan hamparan sawah hijau yang memukau"
             },
             {
@@ -697,10 +592,9 @@
                 location: "Jawa Barat",
                 category: "Budaya",
                 price: "Rp 400.000",
-                priceNum: 400000,
                 rating: 4.8,
                 reviews: 173,
-                image: "assets/KampungNagaJabar.jpg",
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23A5D6A7' width='400' height='300'/%3E%3Crect fill='%238D6E63' x='120' y='100' width='60' height='80'/%3E%3Crect fill='%238D6E63' x='220' y='100' width='60' height='80'/%3E%3Ctext x='200' y='250' font-size='20' fill='white' text-anchor='middle' font-family='Playfair Display'%3EKampung Naga%3C/text%3E%3C/svg%3E",
                 description: "Kampung adat Sunda yang menjaga tradisi leluhur"
             },
             {
@@ -709,10 +603,9 @@
                 location: "Bali",
                 category: "Budaya",
                 price: "Rp 650.000",
-                priceNum: 650000,
                 rating: 4.5,
                 reviews: 87,
-                image: "assets/DesaTrunyanBali.jpg",
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%234FC3F7' width='400' height='300'/%3E%3Cellipse fill='%232E7D32' cx='200' cy='200' rx='150' ry='50'/%3E%3Ctext x='200' y='150' font-size='20' fill='white' text-anchor='middle' font-family='Playfair Display'%3ETrunyan%3C/text%3E%3C/svg%3E",
                 description: "Desa tepi Danau Batur dengan tradisi unik"
             }
         ];
@@ -752,8 +645,7 @@
                     email,
                     password: hashedPassword,
                     joinDate: new Date().toISOString(),
-                    bookings: [],
-                    transactions: []
+                    bookings: []
                 };
 
                 users.push(newUser);
@@ -821,40 +713,6 @@
                 }
 
                 return false;
-            }
-
-            addTransaction(transactionData) {
-                if (!this.isLoggedIn()) return false;
-
-                const users = JSON.parse(localStorage.getItem('lokanesiaUsers') || '[]');
-                const userIndex = users.findIndex(u => u.id === this.currentUser.id);
-
-                if (userIndex !== -1) {
-                    if (!users[userIndex].transactions) {
-                        users[userIndex].transactions = [];
-                    }
-
-                    const transaction = {
-                        id: 'TRX' + Date.now(),
-                        ...transactionData,
-                        createdAt: new Date().toISOString()
-                    };
-
-                    users[userIndex].transactions.unshift(transaction);
-                    localStorage.setItem('lokanesiaUsers', JSON.stringify(users));
-                    
-                    this.currentUser = users[userIndex];
-                    localStorage.setItem('lokanesiaCurrentUser', JSON.stringify(this.currentUser));
-
-                    return transaction;
-                }
-
-                return false;
-            }
-
-            getTransactions() {
-                if (!this.isLoggedIn()) return [];
-                return this.currentUser.transactions || [];
             }
         }
 
@@ -1161,253 +1019,6 @@
                 </div>
             `,
 
-            checkout: `
-                <div class="dashboard-header">
-                    <div class="container">
-                        <h1><i class="fas fa-shopping-cart"></i> Checkout Pemesanan</h1>
-                        <p class="mb-0">Selesaikan pemesanan Anda</p>
-                    </div>
-                </div>
-
-                <div class="container mb-5">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="checkout-card">
-                                <h4 class="mb-4"><i class="fas fa-info-circle"></i> Detail Pemesanan</h4>
-                                <form id="checkoutForm">
-                                    <div class="mb-3">
-                                        <label class="form-label">Nama Lengkap</label>
-                                        <input type="text" class="form-control" id="checkoutName" value="${auth.getCurrentUser()?.name || ''}" required>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="checkoutEmail" value="${auth.getCurrentUser()?.email || ''}" required>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label class="form-label">Nomor Telepon</label>
-                                        <input type="tel" class="form-control" id="checkoutPhone" placeholder="08xxxxxxxxxx" required>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label class="form-label">Tanggal Kunjungan</label>
-                                        <input type="date" class="form-control" id="checkoutDate" min="${new Date().toISOString().split('T')[0]}" required>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label class="form-label">Jumlah Peserta</label>
-                                        <input type="number" class="form-control" id="checkoutParticipants" min="1" value="1" required>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label class="form-label">Pilih Paket</label>
-                                        <select class="form-select" id="checkoutPackage" required>
-                                            <option value="">Pilih Paket</option>
-                                            <option value="1D - Tur Harian">1D - Tur Harian</option>
-                                            <option value="2D1N - Paket Standard">2D1N - Paket Standard (Homestay + Guide)</option>
-                                            <option value="3D2N - Paket Premium">3D2N - Paket Premium (Homestay + Guide + Aktivitas)</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="mb-3">
-                                        <label class="form-label">Catatan Khusus (Opsional)</label>
-                                        <textarea class="form-control" id="checkoutNotes" rows="3" placeholder="Masukkan permintaan khusus atau informasi tambahan"></textarea>
-                                    </div>
-                                </form>
-                            </div>
-
-                            <div class="checkout-card mt-4">
-                                <h4 class="mb-4"><i class="fas fa-credit-card"></i> Metode Pembayaran</h4>
-                                <div class="payment-method" onclick="selectPayment('transfer')">
-                                    <input type="radio" name="payment" value="transfer" id="paymentTransfer">
-                                    <label for="paymentTransfer" class="mb-0">
-                                        <strong><i class="fas fa-university"></i> Transfer Bank</strong>
-                                        <small class="d-block text-muted">BCA, Mandiri, BNI, BRI</small>
-                                    </label>
-                                </div>
-                                
-                                <div class="payment-method" onclick="selectPayment('ewallet')">
-                                    <input type="radio" name="payment" value="ewallet" id="paymentEwallet">
-                                    <label for="paymentEwallet" class="mb-0">
-                                        <strong><i class="fas fa-mobile-alt"></i> E-Wallet</strong>
-                                        <small class="d-block text-muted">GoPay, OVO, DANA, ShopeePay</small>
-                                    </label>
-                                </div>
-                                
-                                <div class="payment-method" onclick="selectPayment('credit')">
-                                    <input type="radio" name="payment" value="credit" id="paymentCredit">
-                                    <label for="paymentCredit" class="mb-0">
-                                        <strong><i class="fas fa-credit-card"></i> Kartu Kredit/Debit</strong>
-                                        <small class="d-block text-muted">Visa, Mastercard, JCB</small>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4">
-                            <div class="checkout-card sticky-top" style="top: 100px;">
-                                <h4 class="mb-4"><i class="fas fa-receipt"></i> Ringkasan Pesanan</h4>
-                                
-                                <div id="checkoutSummary">
-                                    <div class="mb-3">
-                                        <strong id="summaryVillageName">-</strong>
-                                        <p class="text-muted mb-0" id="summaryVillageLocation">-</p>
-                                    </div>
-                                    
-                                    <hr>
-                                    
-                                    <div class="summary-row">
-                                        <span>Harga per orang:</span>
-                                        <span id="summaryPricePerPerson">Rp 0</span>
-                                    </div>
-                                    
-                                    <div class="summary-row">
-                                        <span>Jumlah peserta:</span>
-                                        <span id="summaryParticipants">1</span>
-                                    </div>
-                                    
-                                    <div class="summary-row">
-                                        <span>Paket:</span>
-                                        <span id="summaryPackage">-</span>
-                                    </div>
-                                    
-                                    <div class="summary-row">
-                                        <span>Biaya admin:</span>
-                                        <span>Rp 10.000</span>
-                                    </div>
-                                    
-                                    <hr>
-                                    
-                                    <div class="summary-row">
-                                        <span><strong>Total Pembayaran:</strong></span>
-                                        <span id="summaryTotal" style="color: var(--primary-green); font-size: 1.5rem;">Rp 0</span>
-                                    </div>
-                                </div>
-                                
-                                <button class="btn btn-auth mt-3" onclick="processCheckout()">
-                                    <i class="fas fa-check-circle"></i> Konfirmasi Pembayaran
-                                </button>
-                                
-                                <div class="text-center mt-3">
-                                    <small class="text-muted">
-                                        <i class="fas fa-lock"></i> Transaksi Anda aman dan terenkripsi
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `,
-
-            transactions: `
-                <div class="dashboard-header">
-                    <div class="container">
-                        <h1><i class="fas fa-history"></i> Riwayat Transaksi</h1>
-                        <p class="mb-0">Lihat semua transaksi pemesanan Anda</p>
-                    </div>
-                </div>
-
-                <div class="container mb-5">
-                    ${auth.getTransactions().length > 0 ? `
-                        <div class="row mb-4">
-                            <div class="col-md-4">
-                                <select class="form-select" id="filterStatus" onchange="filterTransactions()">
-                                    <option value="">Semua Status</option>
-                                    <option value="success">Berhasil</option>
-                                    <option value="pending">Pending</option>
-                                    <option value="cancelled">Dibatalkan</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div id="transactionsList">
-                            ${auth.getTransactions().map(transaction => {
-                                const village = villagesData.find(v => v.id === transaction.villageId);
-                                let statusClass = 'status-success';
-                                let statusText = 'Berhasil';
-                                let statusIcon = 'check-circle';
-                                
-                                if (transaction.status === 'pending') {
-                                    statusClass = 'status-pending';
-                                    statusText = 'Menunggu Pembayaran';
-                                    statusIcon = 'clock';
-                                } else if (transaction.status === 'cancelled') {
-                                    statusClass = 'status-cancelled';
-                                    statusText = 'Dibatalkan';
-                                    statusIcon = 'times-circle';
-                                }
-                                
-                                return `
-                                    <div class="transaction-card" data-status="${transaction.status}">
-                                        <div class="transaction-header">
-                                            <div>
-                                                <h5 class="mb-1">${village?.name || 'Unknown Village'}</h5>
-                                                <small class="text-muted">
-                                                    <i class="fas fa-calendar"></i> ${new Date(transaction.createdAt).toLocaleDateString('id-ID', {
-                                                        weekday: 'long',
-                                                        year: 'numeric',
-                                                        month: 'long',
-                                                        day: 'numeric'
-                                                    })}
-                                                </small>
-                                            </div>
-                                            <span class="transaction-status ${statusClass}">
-                                                <i class="fas fa-${statusIcon}"></i> ${statusText}
-                                            </span>
-                                        </div>
-                                        
-                                        <div class="row mt-3">
-                                            <div class="col-md-6">
-                                                <p class="mb-2"><i class="fas fa-hashtag"></i> <strong>ID Transaksi:</strong> ${transaction.id}</p>
-                                                <p class="mb-2"><i class="fas fa-map-marker-alt"></i> <strong>Lokasi:</strong> ${village?.location || '-'}</p>
-                                                <p class="mb-2"><i class="fas fa-box"></i> <strong>Paket:</strong> ${transaction.package}</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p class="mb-2"><i class="fas fa-users"></i> <strong>Peserta:</strong> ${transaction.participants} orang</p>
-                                                <p class="mb-2"><i class="fas fa-calendar-check"></i> <strong>Tanggal Kunjungan:</strong> ${new Date(transaction.visitDate).toLocaleDateString('id-ID')}</p>
-                                                <p class="mb-2"><i class="fas fa-credit-card"></i> <strong>Pembayaran:</strong> ${transaction.paymentMethod}</p>
-                                            </div>
-                                        </div>
-                                        
-                                        <hr>
-                                        
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <strong style="color: var(--primary-green); font-size: 1.3rem;">
-                                                    ${new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(transaction.total)}
-                                                </strong>
-                                            </div>
-                                            <div>
-                                                ${transaction.status === 'pending' ? `
-                                                    <button class="btn btn-sm btn-primary me-2">
-                                                        <i class="fas fa-credit-card"></i> Bayar Sekarang
-                                                    </button>
-                                                ` : ''}
-                                                <button class="btn btn-sm btn-outline-primary" onclick="viewTransactionDetail('${transaction.id}')">
-                                                    <i class="fas fa-eye"></i> Detail
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                `;
-                            }).join('')}
-                        </div>
-                    ` : `
-                        <div class="text-center py-5">
-                            <div class="mb-4">
-                                <i class="fas fa-receipt" style="font-size: 5rem; color: #e0e0e0;"></i>
-                            </div>
-                            <h4 class="mb-3">Belum Ada Transaksi</h4>
-                            <p class="text-muted mb-4">Anda belum memiliki riwayat transaksi. Mulai jelajahi desa wisata dan buat pemesanan pertama Anda!</p>
-                            <button class="btn btn-explore" onclick="showPage('explore')">
-                                <i class="fas fa-compass"></i> Jelajahi Desa Wisata
-                            </button>
-                        </div>
-                    `}
-                </div>
-            `,
-
             login: `
                 <div class="auth-container">
                     <div class="container">
@@ -1483,9 +1094,6 @@
             `
         };
 
-        // ==================== GLOBAL STATE FOR CHECKOUT ====================
-        let currentCheckoutVillage = null;
-
         // ==================== NAVIGATION ====================
 
         function updateNavigation() {
@@ -1496,14 +1104,12 @@
                     <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('home')">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('explore')">Jelajahi</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('dashboard')">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" onclick="showPage('transactions')"><i class="fas fa-history"></i> Transaksi</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                             <i class="fas fa-user-circle"></i> ${auth.getCurrentUser().name}
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#" onclick="showPage('dashboard')"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="showPage('transactions')"><i class="fas fa-history"></i> Riwayat Transaksi</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                         </ul>
@@ -1534,12 +1140,6 @@
             // Setup filters if on explore page
             if (pageName === 'explore') {
                 setupFilters();
-            }
-
-            // Setup checkout listeners
-            if (pageName === 'checkout') {
-                setupCheckoutListeners();
-                updateCheckoutSummary();
             }
         }
 
@@ -1622,172 +1222,18 @@
             }
 
             const village = villagesData.find(v => v.id === villageId);
-            currentCheckoutVillage = village;
             
-            showPage('checkout');
-        }
-
-        // ==================== CHECKOUT FUNCTIONALITY ====================
-
-        function setupCheckoutListeners() {
-            if (!currentCheckoutVillage) {
-                showNotification('Silakan pilih desa wisata terlebih dahulu.', 'warning');
-                showPage('explore');
-                return;
-            }
-
-            // Update summary with village info
-            document.getElementById('summaryVillageName').textContent = currentCheckoutVillage.name;
-            document.getElementById('summaryVillageLocation').textContent = currentCheckoutVillage.location;
-            document.getElementById('summaryPricePerPerson').textContent = currentCheckoutVillage.price;
-
-            // Add event listeners for dynamic updates
-            const participantsInput = document.getElementById('checkoutParticipants');
-            const packageSelect = document.getElementById('checkoutPackage');
-
-            if (participantsInput) {
-                participantsInput.addEventListener('input', updateCheckoutSummary);
-            }
-
-            if (packageSelect) {
-                packageSelect.addEventListener('change', updateCheckoutSummary);
-            }
-        }
-
-        function updateCheckoutSummary() {
-            if (!currentCheckoutVillage) return;
-
-            const participants = parseInt(document.getElementById('checkoutParticipants')?.value || 1);
-            const packageType = document.getElementById('checkoutPackage')?.value || '';
-            
-            document.getElementById('summaryParticipants').textContent = participants;
-            document.getElementById('summaryPackage').textContent = packageType || '-';
-
-            const basePrice = currentCheckoutVillage.priceNum;
-            const adminFee = 10000;
-            const total = (basePrice * participants) + adminFee;
-
-            document.getElementById('summaryTotal').textContent = new Intl.NumberFormat('id-ID', {
-                style: 'currency',
-                currency: 'IDR'
-            }).format(total);
-        }
-
-        function selectPayment(method) {
-            document.querySelectorAll('.payment-method').forEach(el => {
-                el.classList.remove('active');
-            });
-            
-            event.currentTarget.classList.add('active');
-            document.getElementById('payment' + method.charAt(0).toUpperCase() + method.slice(1)).checked = true;
-        }
-
-        function processCheckout() {
-            if (!auth.isLoggedIn()) {
-                showNotification('Silakan login terlebih dahulu.', 'warning');
-                showPage('login');
-                return;
-            }
-
-            // Validate form
-            const form = document.getElementById('checkoutForm');
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
-
-            // Validate payment method
-            const paymentMethod = document.querySelector('input[name="payment"]:checked');
-            if (!paymentMethod) {
-                showNotification('Silakan pilih metode pembayaran.', 'warning');
-                return;
-            }
-
-            // Get form data
-            const name = document.getElementById('checkoutName').value;
-            const email = document.getElementById('checkoutEmail').value;
-            const phone = document.getElementById('checkoutPhone').value;
-            const visitDate = document.getElementById('checkoutDate').value;
-            const participants = parseInt(document.getElementById('checkoutParticipants').value);
-            const packageType = document.getElementById('checkoutPackage').value;
-            const notes = document.getElementById('checkoutNotes').value;
-
-            const basePrice = currentCheckoutVillage.priceNum;
-            const adminFee = 10000;
-            const total = (basePrice * participants) + adminFee;
-
-            // Create transaction
-            const transactionData = {
-                villageId: currentCheckoutVillage.id,
-                villageName: currentCheckoutVillage.name,
-                name,
-                email,
-                phone,
-                visitDate,
-                participants,
-                package: packageType,
-                notes,
-                paymentMethod: paymentMethod.value,
-                basePrice,
-                adminFee,
-                total,
-                status: 'success' // In production, this would be 'pending' until payment confirmed
-            };
-
-            const transaction = auth.addTransaction(transactionData);
-
-            if (transaction) {
-                // Also add to bookings for backward compatibility
-                auth.addBooking(currentCheckoutVillage.id, packageType, visitDate);
-
-                showNotification('Pembayaran berhasil! Terima kasih atas pemesanan Anda.', 'success');
+            if (confirm(`Booking ${village.name}?\n\nHarga: ${village.price}/orang\nLokasi: ${village.location}\n\nLanjutkan?`)) {
+                const packageType = 'Paket 2D1N + Guide + Homestay';
+                const date = new Date();
+                date.setDate(date.getDate() + 7); // 7 days from now
                 
-                // Reset checkout state
-                currentCheckoutVillage = null;
-                
-                // Redirect to transactions page
-                setTimeout(() => {
-                    showPage('transactions');
-                }, 1500);
-            } else {
-                showNotification('Terjadi kesalahan saat memproses pembayaran.', 'danger');
-            }
-        }
-
-        // ==================== TRANSACTION FILTERS ====================
-
-        function filterTransactions() {
-            const statusFilter = document.getElementById('filterStatus').value;
-            const transactionCards = document.querySelectorAll('.transaction-card');
-
-            transactionCards.forEach(card => {
-                const cardStatus = card.dataset.status;
-                
-                if (!statusFilter || cardStatus === statusFilter) {
-                    card.style.display = 'block';
+                if (auth.addBooking(villageId, packageType, date.toISOString())) {
+                    showNotification(`Booking berhasil! ${village.name} telah ditambahkan ke dashboard Anda.`, 'success');
+                    showPage('dashboard');
                 } else {
-                    card.style.display = 'none';
+                    showNotification('Terjadi kesalahan saat booking.', 'danger');
                 }
-            });
-        }
-
-        function viewTransactionDetail(transactionId) {
-            const transaction = auth.getTransactions().find(t => t.id === transactionId);
-            
-            if (transaction) {
-                const village = villagesData.find(v => v.id === transaction.villageId);
-                
-                alert(`Detail Transaksi\n\n` +
-                    `ID: ${transaction.id}\n` +
-                    `Desa: ${village?.name || 'Unknown'}\n` +
-                    `Lokasi: ${village?.location || '-'}\n` +
-                    `Paket: ${transaction.package}\n` +
-                    `Peserta: ${transaction.participants} orang\n` +
-                    `Tanggal Kunjungan: ${new Date(transaction.visitDate).toLocaleDateString('id-ID')}\n` +
-                    `Total: ${new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(transaction.total)}\n` +
-                    `Status: ${transaction.status}\n` +
-                    `Metode Pembayaran: ${transaction.paymentMethod}`
-                );
             }
         }
 
